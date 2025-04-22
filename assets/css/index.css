@@ -20,7 +20,7 @@
     background-size: cover;
     background-position: center -100px;
     background-repeat: no-repeat;
-    background-image: url(/assets/data/images/Earth.png);
+    background-image: url(../data/images/Earth.png);
 }
 
 .banner div p {
@@ -110,7 +110,7 @@
     max-width: 200px;
     height: 15em;
     border: rgba(255, 255, 255, 0.1) 1px solid;
-    background-image: url(/assets/data/images/logo.png);
+    background-image: url(../data/images/logo.png);
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
