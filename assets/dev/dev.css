@@ -1,0 +1,161 @@
+:root {
+    --debug-padding: 1rem;
+    --debug-opacity: 0.910;
+}
+
+.dev {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+#debugMenuContainer button {
+    padding: initial;
+    background-color: buttonface;
+    color: buttontext;
+    font: initial;
+    text-decoration: initial;
+    border-width: 2px;
+    border-style: outset;
+    border-color: buttonborder;
+    border-image: initial;
+}
+
+#debugMenuContainer p,
+#debugMenuContainer span {
+    color: #000000;
+}
+
+/* Debug */
+#debugButton {
+    /* position: fixed;
+    top: 0; */
+
+    /* border: none;
+    color: transparent;
+    background-color: transparent; */
+
+    -webkit-user-select: none;
+    user-select: none;
+    z-index: 4;
+}
+
+#debugMenuContainer {
+    display: flex;
+    position: absolute;
+    top: 0;
+    min-width: 100%;
+    z-index: 10;
+}
+
+#debugMenu {
+    display: none;
+    padding: var(--debug-padding);
+    background-color: rgba(128, 255, 0, var(--debug-opacity));
+}
+
+#information {
+    position: initial;
+    padding: var(--debug-padding);
+    background-color: rgba(0, 100, 0, var(--debug-opacity));
+}
+
+/* "on" and "off" indicators */
+.indicator {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-left: 5px;
+    background-color: red;
+}
+
+.indicator.on {
+    background-color: green;
+}
+
+#clocksContainer {
+    position: relative;
+}
+
+.clocks {
+    display: block;
+}
+
+.clock {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(50%, 50%);
+}
+
+/* Analog Clock Styles */
+#analogClock {
+    width: 200px;
+    height: 180px;
+}
+
+div.dig,
+div.hour,
+div.min,
+div.sec {
+    position: absolute;
+}
+
+div.hour,
+div.min,
+div.sec {
+    width: 2.5px;
+    height: 2.5px;
+    font-size: 2.5px;
+}
+
+div.dig {
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    color: #000000;
+    text-align: center;
+    padding-top: 10px
+}
+
+div.min {
+    background: #0000FF;
+}
+
+div.hour {
+    background: #000000;
+}
+
+div.sec {
+    background: #FF0000;
+}
+
+/* Digital Clock Styles */
+#digitalClock {
+    font-size: 1.5em;
+    text-align: center;
+}
+
+/* Media */
+/* ===== */
+@media screen and (min-width: 420px) {
+    #debugMenuContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+}
+
+@media screen and (max-width: 420px) {
+    #debugMenuContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+}
