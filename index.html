@@ -129,7 +129,6 @@
 
     <footer>
         <div class="footer-content">
-            <button id="debugButton">DEBUG</button>
             <button class="changelog">changelog</button>
             <button class="feedback">FeedBack</button>
         </div>
@@ -147,9 +146,10 @@
         </div>
         <div class="notification-content">
             <p>Welcome! We are looking for brothers and sisters who may have the experience and/or knowlegde in; 3D, Web development, and much more. If you do not have the technical or creativity for computers or other skills, we are happy to have <b>YOU</b> for voice acting!</p>
-            <p style="margin-top: 1em;">If you are interested, please contact us at <a href="mailto:thebibleav@gmail.com">"thebibleav@gmail.com"</a>. Or go to the bottom of the website and click on "FeedBack" and fill in the Email form. <span style="float: inline-end; margin-top: 1em; text-align: end;">Thank You and Much Love ❤️, <br> Jose Luis Barcelo</span></p>
+            <p style="margin-top: 1em;">If you are interested, please contact us at <a href="mailto:thebibleav@gmail.com">"thebibleav@gmail.com"</a>. Or go to the bottom of the website and click on "FeedBack" and fill in the Email form. <span style="float: inline-end; margin-top: 1em; text-align: end;">Thank You and Much Love ❤️, <br> Jose Luis Barcelo <br> <input style="margin-top: 1em;" type="checkbox" id="doNotShowAgain"> Do not show again</span></p>
         </div>
     </dialog>
+
     <dialog class="lang-modal">
         <div class="bar">
             <h2>Language</h2>
@@ -165,6 +165,14 @@
         </div>
 
         <div class="dlg-lang-container">
+            <!-- <ul id="lang-switcher" class="language-list">
+                <li>
+                    <a class="selected" value="en" data-i18n="goHome">English</a>
+                </li>
+                <li>
+                    <a value="es" data-i18n="goHome">Español</a>
+                </li>
+            </ul> -->
             <select id="lang-switcher" class="language-list">
                 <option class="selected" value="en">English</option>
                 <option value="es">Español</option>
@@ -220,8 +228,8 @@
                     To Do:
                 </h3>
                 <li>Improve Dialog JavaScript</li>
-                <li>Anti Spam in feedback form or a check if there is anything in the text form</li>
-                <li>Make A button to activate/disable JS</li>
+                <li class="crossed">Anti Spam in feedback form or a check if there is anything in the text form</li>
+                <li>NOT POSSIBLE - <span class="crossed">Make A button to activate/disable JS</span></li>
                 <li>Make the stream view dynamic — generate the list of chapters from an array/object.</li>
                 <li>Hook up language switching properly — so you can switch languages while staying on the same view.</li>
                 <li>Start styling — unify the layout, maybe pull in a CSS reset or add themes?</li>
@@ -353,9 +361,9 @@
                     </ul>
                 </li>
                 <li>
-                    - Dynamic; js added Debug button, js added debug content.
+                    - Half liked <span class="crossed">Dynamic; js added Debug button, js added debug content.</span>
                 </li>
-                <li>
+                <li class="crossed">
                     - Fix minor indicator bug, where you press the indicator and it stays red
                 </li>
             </ul>
@@ -384,10 +392,6 @@
         </div>
     </dialog>
 
-    <script src="assets/dev/debugMenu.js"></script>
-    <script src="assets/dev/debugFunctions.js"></script>
-    <script src="assets/dev/debugInfoUpdater.js"></script>
-    <script src="assets/dev/debugIndicators.js"></script>
     <script>
         console.log("JavaScript is enabled.");
     </script>

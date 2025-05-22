@@ -140,7 +140,7 @@
     overflow: hidden;
 }
 
-iframe {
+video {
     display: block;
     width: 100%;
     height: 540px;

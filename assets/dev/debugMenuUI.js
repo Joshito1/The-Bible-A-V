@@ -7,7 +7,7 @@ function createDebugMenuStructure() {
     debugMenu.id = 'debugMenu';
 
     debugMenu.innerHTML = `
-    <p style="font-size: xx-large; margin-bottom: 10px;">Debug mode<span style="font-size: initial">under development aswell:</span></p>
+    <p style="font-size: xx-large; margin-bottom: 10px;">Debug Mode<span style="font-size: initial">under development aswell:</span></p>
     <button onclick="reloadPage()">Reload Page</button>
     <p>Web browser storage:</p>
     <button class="toggle-indicator-button" onclick="showWebStorage()">Show Web Storage</button>

@@ -1,7 +1,5 @@
 import { views } from './views.js';
 import { initializeDevEnvironment } from '../../../assets/dev/dev.js';
-
-// Initialize the development environment
 initializeDevEnvironment();
 
 const app = document.getElementById('app');

@@ -1,23 +1,16 @@
-// Create indicators for buttons
-const indicatorButtons = document.querySelectorAll('.toggle-indicator-button');
-
-indicatorButtons.forEach((button) => {
-    const indicator = document.createElement('span');
-    indicator.classList.add('indicator');
-    button.appendChild(indicator);
-});
-
-// Toggle indicators
-document.getElementById('debugMenu').addEventListener('click', (event) => {
-    const target = event.target;
-
-    if (target.classList.contains('toggle-indicator-button')) {
-        const indicator = target.querySelector('.indicator');
-
-        if (indicator.classList.contains('on')) {
-            indicator.classList.remove('on');
-        } else {
-            indicator.classList.add('on');
-        }
+// Toggle the indicator state
+function toggleIndicator(button) {
+    const indicator = button.querySelector('.indicator');
+    if (indicator) {
+        indicator.classList.toggle('on');
     }
+}
+
+// Add indicators to buttons
+document.querySelectorAll('.toggle-indicator-button').forEach(button => {
+    const indicator = document.createElement('span');
+    indicator.className = 'indicator';
+    button.appendChild(indicator);
+
+    button.addEventListener('click', () => toggleIndicator(button));
 });

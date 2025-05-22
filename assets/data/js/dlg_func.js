@@ -53,13 +53,24 @@ dialogs.forEach(dialogConfig => setupDialog(dialogConfig));
 // Show notification dialog every time
 function showNotification() {
     const notificationDialog = document.querySelector(".notification-dialog");
+    const doNotShowAgain = localStorage.getItem("doNotShowNotification");
 
-    if (notificationDialog) {
+    if (!doNotShowAgain && notificationDialog) {
         notificationDialog.showModal();
+
+        const checkbox = document.querySelector("#doNotShowAgain");
+        const closeBtn = notificationDialog.querySelector(".close");
+
+        // Save preference when the dialog is closed
+        closeBtn.addEventListener("click", () => {
+            if (checkbox.checked) {
+                localStorage.setItem("doNotShowNotification", "true");
+            }
+        });
     }
 }
 
-// Call the function to show the notification dialog every time
+// Call the function to show the notification dialog
 showNotification();
 
 // Feedback Email Functionality with Anti-Spam and Input Validation
