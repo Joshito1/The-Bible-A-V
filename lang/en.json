@@ -1,5 +1,16 @@
 {
-    "welcome": "Welcome!",
-    "introText": "This is your English home page.",
-    "goToStream": "Go to Stream"
+    "home": {
+        "title": "The Bible Audio & Visual",
+        "play": "Play",
+        "continue": "Continue",
+        "goHome": "Home",
+        "goToStream": "Videos",
+        "streamHomeTitle": "Chapters",
+        "streamHomeAllLinkTitle": "See all"
+    },
+    "dialogs": {
+        "lang": {
+            "title": "Select Your Language"
+        }
+    }
 }

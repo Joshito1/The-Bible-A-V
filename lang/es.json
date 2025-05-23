@@ -1,0 +1,16 @@
+{
+    "home": {
+        "title": "La Biblia Audio y Visual",
+        "play": "Reproducir",
+        "continue": "Continuar",
+        "goHome": "Inicio",
+        "goToStream": "Videos",
+        "streamHomeTitle": "Capitulos",
+        "streamHomeAllLinkTitle": "Todos Los Capitulos"
+    },
+    "dialogs": {
+        "lang": {
+            "title": "Seleccione un Idioma"
+        }
+    }
+}

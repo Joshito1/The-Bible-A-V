@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=search" />
     <link rel="stylesheet" href="assets/css/universal.css">
@@ -52,39 +53,20 @@
         float: right;
     }
 
-    .search-container {
-        display: flex;
-        align-items: center;
-    }
-
-    input {
-        font-size: large;
-        border: 2px solid var(--color-048);
-        background-color: var(--color-099);
-    }
-
     .bar {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
+        position: sticky;
+        top: 0;
         margin: 0 auto 1em;
         padding: 0 2em;
         width: min(900px, 100% - 0rem);
         height: 57px;
         background-color: rgb(20, 20, 20);
         border-radius: 35px;
-    }
-
-    .language-list {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        /* height: 100%; */
-        margin: 1em 0;
-        padding: 0 5px;
-        border: 2px solid white;
-        background-color: transparent;
-        font-size: large;
+        z-index: 1;
     }
 
     .feedback-form {
@@ -97,19 +79,64 @@
         align-self: flex-end;
         width: fit-content;
     }
+
+    .language-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        /* height: 100%; */
+        margin: 1em 0;
+        padding: 0 5px;
+        border: 1px solid white;
+        border-radius: 5px;
+        background-color: transparent;
+        font-size: large;
+    }
+
+    .searchable-dropdown {
+        position: relative;
+        width: 100%;
+    }
+
+    .search-container {
+        display: flex;
+        align-items: center;
+    }
+
+    #lang-search {
+        width: 100%;
+        padding: 10px;
+        font-size: large;
+        border: 2px solid var(--color-048);
+        background-color: var(--color-099);
+        border-radius: 5px;
+    }
+
+    #lang-options li {
+        padding: 10px;
+        cursor: pointer;
+    }
+
+    #lang-options li:hover {
+        background-color: var(--color-099);
+    }
+
+    #lang-options li.selected {
+        background-color: var(--color-099);
+        font-weight: bold;
+    }
 </style>
 
-<body>
+<body Cross-Origin-Opener-Policy: same-origin>
     <header>
-        <a href="#/en/home" class="logo"><img src="./assets/data/images/logo.png" alt="Bible Logo"></a>
+        <a href="#" class="logo"><img src="./assets/data/images/logo.png" alt="Bible Logo"></a>
         <nav>
             <button class="notification">
                 <img src="./assets/data/images/notifications_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.png" alt="">
                 <span class="notification-badge">!</span>
             </button>
             <ul>
-                <li><a href="#/en/home" data-i18n="goHome">Home</a></li>
-                <li><a href="#/en/stream" data-i18n="goToStream">Stream</a></li>
+                <li><a data-route="home" data-i18n="home.goHome">H</a></li>
+                <li><a data-route="stream" data-i18n="home.goToStream">S</a></li>
             </ul>
             <button class="lang">
                 <img src="./assets/data/images/translate_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.png" alt="">
@@ -125,7 +152,7 @@
         </div>
     </noscript>
 
-    <div id="app" class="content" data-i18n="content">Loading...</div>
+    <div id="app" class="content">Loading...</div>
 
     <footer>
         <div class="footer-content">
@@ -152,35 +179,37 @@
 
     <dialog class="lang-modal">
         <div class="bar">
-            <h2>Language</h2>
+            <h2 data-i18n="dialogs.lang.title"></h2>
             <button class="close">
                 {X}
             </button>
         </div>
-        <div class="search-container">
-            <input type="text" name="" id="">
-            <button type="submit">
-                <img src="./assets/data/images/search_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.png" alt="search">
-            </button>
-        </div>
 
         <div class="dlg-lang-container">
-            <!-- <ul id="lang-switcher" class="language-list">
-                <li>
-                    <a class="selected" value="en" data-i18n="goHome">English</a>
-                </li>
-                <li>
-                    <a value="es" data-i18n="goHome">Español</a>
-                </li>
-            </ul> -->
-            <select id="lang-switcher" class="language-list">
-                <option class="selected" value="en">English</option>
-                <option value="es">Español</option>
-            </select>
+            <div class="searchable-dropdown">
+                <input type="text" id="lang-search" placeholder="Search language..." />
+                <ul id="lang-options" class="language-list">
+                    <li data-value="en">English</li>
+                    <li data-value="es">Español</li>
+                    <li data-value="fr">Français</li>
+                    <li data-value="de">Deutsch</li>
+                    <li data-value="it">Italiano</li>
+                    <li data-value="pt">Português</li>
+                    <li data-value="ru">Русский</li>
+                    <li data-value="zh">中文</li>
+                    <li data-value="ja">日本語</li>
+                    <li data-value="ko">한국어</li>
+                    <li data-value="ar">العربية</li>
+                    <li data-value="hi">हिन्दी</li>
+                    <li data-value="tr">Türkçe</li>
+                    <li data-value="nl">Nederlands</li>
+                    <li data-value="sv">Svenska</li>
+                </ul>
+            </div>
 
-            <p class="note">
+            <!-- <p class="note" data-i18n="dialogs.lang.note">
                 <span class="exclaimed">Welcome</span> <br> Please Select/Set your Language
-            </p>
+            </p> -->
         </div>
     </dialog>
 
@@ -231,9 +260,8 @@
                 <li class="crossed">Anti Spam in feedback form or a check if there is anything in the text form</li>
                 <li>NOT POSSIBLE - <span class="crossed">Make A button to activate/disable JS</span></li>
                 <li>Make the stream view dynamic — generate the list of chapters from an array/object.</li>
-                <li>Hook up language switching properly — so you can switch languages while staying on the same view.</li>
-                <li>Start styling — unify the layout, maybe pull in a CSS reset or add themes?</li>
-                <li>Implement i18n in the stream view — so translations load dynamically like the home view.</li>
+                <li>half way - Hook up language switching properly — so you can switch languages while staying on the same view.</li>
+                <li>half way - Implement i18n in the stream view — so translations load dynamically like the home view.</li>
             </ul>
             <hr>
             <ul>

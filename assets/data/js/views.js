@@ -1,22 +1,19 @@
 export const views = {
     home: {
         en: `
-        <!--<h1 data-i18n="welcome"></h1>
-        <p data-i18n="introText"></p>-->
             <section class="banner">
                 <div class="banner-inner">
-                    <p data-i18n="title">The Bible Audio & Visual</p>
-                    <a data-i18n="play" href="">Play</a>
-                    <!-- <button class="button-info">More Info</button> -->
+                    <p data-i18n="home.title"></p>
+                    <button data-i18n="home.play" href=""></button>
                 </div>
             </section>
             <section class="chapter-select">
                 <div class="title">
-                    <h2>Chapters</h2>
-                    <a href="#/en/stream">See All</a>
+                    <h2 data-i18n="home.streamHomeTitle"></h2>
+                    <a data-i18n="home.streamHomeAllLinkTitle"></a>
                 </div>
                 <ul>
-                    <li>
+                    <!-- <li>
                         <div>
                             <p data-i18n="book" class="book">Gen</p>
                         </div>
@@ -41,7 +38,7 @@ export const views = {
                             <p data-i18n="book" class="book">De</p>
                         </div>
                     </li>
-                </ul>
+                </ul> -->
 
             </section>
             `
