@@ -1,4 +1,5 @@
 import { views } from './views.js';
+import './yt.js'
 import { initializeDevEnvironment } from '../../../assets/dev/dev.js';
 initializeDevEnvironment();
 
@@ -16,8 +17,6 @@ async function loadView(route) {
     try {
         await loadTranslations(lang);
         applyTranslations();
-        const pageTitle = translations[page] || '404';
-        document.title = `${pageTitle} - The Bible AV`;
     } catch (err) {
         console.error('Error loading translations:', err);
         app.innerHTML = '<h1>404</h1>'; // Fallback to 404 if translations fail
@@ -98,7 +97,7 @@ async function updateTranslationsFromDOM() {
         });
 
         // Log the missing keys as JSON
-        console.log(`Missing keys for ${lang}:`, JSON.stringify(missingKeys, null, 2));
+        // console.log(`Missing keys for ${lang}:`, JSON.stringify(missingKeys, null, 2));
     } catch (err) {
         console.error(`Error fetching translations:`, err);
     }
@@ -182,4 +181,21 @@ document.addEventListener('DOMContentLoaded', () => {
             selectedItem.classList.add('selected');
         }
     });
+});
+
+// Use event delegation for data-route navigation
+document.addEventListener('click', (event) => {
+    const link = event.target.closest('[data-route]'); // Check if the clicked element or its parent has data-route
+    if (link) {
+        event.preventDefault(); // Prevent default anchor behavior
+
+        const route = link.getAttribute('data-route'); // Get the route value
+        const lang = localStorage.getItem('selectedLanguage') || 'en'; // Get the current language
+
+        // Update the URL hash
+        history.pushState(null, '', `#/${lang}/${route}`);
+
+        // Load the corresponding view
+        loadView(location.hash);
+    }
 });

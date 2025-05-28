@@ -1,5 +1,5 @@
 export function initializeDevEnvironment(config = {
-    showBanner: true,
+    showBanner: false,
     showDebugButton: true,
     debugModules: ['debugMenuUI', 'debugStorageTools', 'debugclockManager', 'debugInfoHandlers', 'debugMenuActions', 'debugInfoUpdater', 'debugIndicators']
 }) {

@@ -4,12 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=search" />
     <link rel="stylesheet" href="assets/css/universal.css">
     <link rel="stylesheet" href="assets/css/index.css">
-    <title>Bible A&V | Home</title>
+    <title>The Bible A&V</title>
 </head>
 <style>
     dialog {
@@ -126,9 +123,9 @@
     }
 </style>
 
-<body Cross-Origin-Opener-Policy: same-origin>
+<body>
     <header>
-        <a href="#" class="logo"><img src="./assets/data/images/logo.png" alt="Bible Logo"></a>
+        <a data-route="home" class="logo"><img src="./assets/data/images/logo.png" alt="Bible Logo"></a>
         <nav>
             <button class="notification">
                 <img src="./assets/data/images/notifications_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.png" alt="">
@@ -139,7 +136,7 @@
                 <li><a data-route="stream" data-i18n="home.goToStream">S</a></li>
             </ul>
             <button class="lang">
-                <img src="./assets/data/images/translate_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.png" alt="">
+                <img src="./assets/data/images/translate-2-2.svg" alt="Translation">
             </button>
         </nav>
     </header>
@@ -191,19 +188,6 @@
                 <ul id="lang-options" class="language-list">
                     <li data-value="en">English</li>
                     <li data-value="es">Español</li>
-                    <li data-value="fr">Français</li>
-                    <li data-value="de">Deutsch</li>
-                    <li data-value="it">Italiano</li>
-                    <li data-value="pt">Português</li>
-                    <li data-value="ru">Русский</li>
-                    <li data-value="zh">中文</li>
-                    <li data-value="ja">日本語</li>
-                    <li data-value="ko">한국어</li>
-                    <li data-value="ar">العربية</li>
-                    <li data-value="hi">हिन्दी</li>
-                    <li data-value="tr">Türkçe</li>
-                    <li data-value="nl">Nederlands</li>
-                    <li data-value="sv">Svenska</li>
                 </ul>
             </div>
 
@@ -420,6 +404,7 @@
         </div>
     </dialog>
 
+    <script type="module" src="assets/data/js/main.js"></script>
     <script>
         console.log("JavaScript is enabled.");
     </script>
@@ -433,7 +418,6 @@
         })();
     </script>
     <script src="assets/data/js/dlg_func.js"></script>
-    <script type="module" src="assets/data/js/main.js"></script>
 </body>
 
 </html>

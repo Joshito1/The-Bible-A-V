@@ -4,13 +4,13 @@ export const views = {
             <section class="banner">
                 <div class="banner-inner">
                     <p data-i18n="home.title"></p>
-                    <button data-i18n="home.play" href=""></button>
+                    <a data-route="stream" data-i18n="home.play"></a>
                 </div>
             </section>
             <section class="chapter-select">
                 <div class="title">
                     <h2 data-i18n="home.streamHomeTitle"></h2>
-                    <a data-i18n="home.streamHomeAllLinkTitle"></a>
+                    <a data-route="stream" data-i18n="home.streamHomeAllLinkTitle"></a>
                 </div>
                 <ul>
                     <!-- <li>
@@ -46,8 +46,12 @@ export const views = {
     stream: {
         en: `
         <div class="player">
-        <video controls muted preload="auto">
-            <source src="assets/media/video.mp4" type="video/mp4">            <div class="player-inner">
+            <div id="videoContainer" class="videos">
+
+            </div>
+            <!-- <video controls muted preload="auto">
+            <source src="assets/media/video.mp4" type="video/mp4">
+            <div class="player-inner">
                 <div class="player-controls">
                     <button class="play-pause" data-i18n="play"></button>
                     <button class="stop" data-i18n="stop"></button>
@@ -168,7 +172,7 @@ export const views = {
             </div>
         </div>
 
-        </video>
+        </video> -->
         </div>
         <div class="content-container">
         <select name="books" id="book-select">
