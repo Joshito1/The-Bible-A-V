@@ -20,13 +20,14 @@
 
 
 ::-webkit-scrollbar {
-    width: 5px;
-    height: 5px;
+    width: 0px;
     background-color: var(--color-000);
+    border-radius: 50px;
 }
 
 ::-webkit-scrollbar-thumb {
     background-color: var(--color-099);
+    border-radius: 50px;
 }
 
 * {
@@ -126,6 +127,7 @@ header .logo {
 img {
     display: block;
     width: 100%;
+    max-width: 100%;
 }
 
 header nav {
@@ -137,8 +139,20 @@ header ul {
     display: inherit;
 }
 
+.lang svg {
+    width: 30px;
+    fill: var(--color-765);
+    cursor: pointer;
+}
+
 .notification {
     position: relative;
+}
+
+.notification svg {
+    width: 25px;
+    fill: var(--color-765);
+    cursor: pointer;
 }
 
 .notification-badge {

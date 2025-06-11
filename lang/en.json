@@ -10,7 +10,13 @@
     },
     "dialogs": {
         "lang": {
+            "en": "English",
+            "es": "Spanish",
             "title": "Select Your Language"
+        },
+        "notification": {
+            "title": "Notification",
+            "content": ""
         }
     }
 }

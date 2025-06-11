@@ -23,6 +23,10 @@
         background-color: rgba(0, 0, 0, 0.5);
     }
 
+    dialog::-webkit-scrollbar {
+        width: 5px;
+    }
+
     .dlg-lang-container {
         display: flex;
         flex-direction: column;
@@ -89,6 +93,12 @@
         font-size: large;
     }
 
+    .language-list li span {
+        display: flex;
+        font-size: 16px;
+        font-weight: 100;
+    }
+
     .searchable-dropdown {
         position: relative;
         width: 100%;
@@ -99,13 +109,17 @@
         align-items: center;
     }
 
-    #lang-search {
+    #lang-search,
+    input[type=text],
+    input[type=submit],
+    textarea {
         width: 100%;
         padding: 10px;
         font-size: large;
         border: 2px solid var(--color-048);
         background-color: var(--color-099);
         border-radius: 5px;
+        resize: none;
     }
 
     #lang-options li {
@@ -128,15 +142,18 @@
         <a data-route="home" class="logo"><img src="./assets/data/images/logo.png" alt="Bible Logo"></a>
         <nav>
             <button class="notification">
-                <img src="./assets/data/images/notifications_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.png" alt="">
-                <span class="notification-badge">!</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18 10C18 6.68629 15.3137 4 12 4C8.68629 4 6 6.68629 6 10V18H18V10ZM20 18.6667L20.4 19.2C20.5657 19.4209 20.5209 19.7343 20.3 19.9C20.2135 19.9649 20.1082 20 20 20H4C3.72386 20 3.5 19.7761 3.5 19.5C3.5 19.3918 3.53509 19.2865 3.6 19.2L4 18.6667V10C4 5.58172 7.58172 2 12 2C16.4183 2 20 5.58172 20 10V18.6667ZM9.5 21H14.5C14.5 22.3807 13.3807 23.5 12 23.5C10.6193 23.5 9.5 22.3807 9.5 21Z"></path>
+                </svg> <span class="notification-badge">!</span>
             </button>
             <ul>
                 <li><a data-route="home" data-i18n="home.goHome">H</a></li>
                 <li><a data-route="stream" data-i18n="home.goToStream">S</a></li>
             </ul>
             <button class="lang">
-                <img src="./assets/data/images/translate-2-2.svg" alt="Translation">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18.5 10L22.9 21H20.745L19.544 18H15.454L14.255 21H12.101L16.5 10H18.5ZM10 2V4H16V6L14.0322 6.0006C13.2425 8.36616 11.9988 10.5057 10.4115 12.301C11.1344 12.9457 11.917 13.5176 12.7475 14.0079L11.9969 15.8855C10.9237 15.2781 9.91944 14.5524 8.99961 13.7249C7.21403 15.332 5.10914 16.5553 2.79891 17.2734L2.26257 15.3442C4.2385 14.7203 6.04543 13.6737 7.59042 12.3021C6.46277 11.0281 5.50873 9.57985 4.76742 8.00028L7.00684 8.00037C7.57018 9.03885 8.23979 10.0033 8.99967 10.877C10.2283 9.46508 11.2205 7.81616 11.9095 6.00101L2 6V4H8V2H10ZM17.5 12.8852L16.253 16H18.745L17.5 12.8852Z"></path>
+                </svg>
             </button>
         </nav>
     </header>
@@ -163,14 +180,12 @@
     <!--  -->
     <dialog class="notification-dialog">
         <div class="bar">
-            <h2>Notification</h2>
+            <h2 data-i18n="dialogs.notification.title">Notification</h2>
             <button class="close">
                 {X}
             </button>
         </div>
-        <div class="notification-content">
-            <p>Welcome! We are looking for brothers and sisters who may have the experience and/or knowlegde in; 3D, Web development, and much more. If you do not have the technical or creativity for computers or other skills, we are happy to have <b>YOU</b> for voice acting!</p>
-            <p style="margin-top: 1em;">If you are interested, please contact us at <a href="mailto:thebibleav@gmail.com">"thebibleav@gmail.com"</a>. Or go to the bottom of the website and click on "FeedBack" and fill in the Email form. <span style="float: inline-end; margin-top: 1em; text-align: end;">Thank You and Much Love ❤️, <br> Jose Luis Barcelo <br> <input style="margin-top: 1em;" type="checkbox" id="doNotShowAgain"> Do not show again</span></p>
+        <div class="notification-content" data-i18n="dialogs.notification.content">
         </div>
     </dialog>
 
@@ -186,14 +201,10 @@
             <div class="searchable-dropdown">
                 <input type="text" id="lang-search" placeholder="Search language..." />
                 <ul id="lang-options" class="language-list">
-                    <li data-value="en">English</li>
-                    <li data-value="es">Español</li>
+                    <li data-value="en"><span data-i18n="dialogs.lang.en"></span>English</li>
+                    <li data-value="es"><span data-i18n="dialogs.lang.es"></span>Español</li>
                 </ul>
             </div>
-
-            <!-- <p class="note" data-i18n="dialogs.lang.note">
-                <span class="exclaimed">Welcome</span> <br> Please Select/Set your Language
-            </p> -->
         </div>
     </dialog>
 
@@ -218,7 +229,7 @@
             </div>
             <div class="feedback-form">
                 <label for="comment">Comment</label>
-                <input type="text" name="comment" id="feedback-input">
+                <textarea name="comment" id="feedback-input" placeholder="Message..." rows="10"></textarea>
             </div>
             <div class="feedback-form">
                 <input class="submit-btn" type="submit" value="Send" onclick="sendMail()">
